@@ -62,7 +62,11 @@ IFORMATIONS:
 
 
 
-INSTALLATION
+INSTALLATION:
 
+$ git clone https://github.com/dAYOShACKER505/AXOM-FB-HACK
 
+$ cd AXOM-FB-HACK
+
+$ python2 axom.py
 
