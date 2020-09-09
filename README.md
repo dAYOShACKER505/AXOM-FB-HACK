@@ -4,13 +4,13 @@
 
 
 FEATURES:
-
+======================================
 1 NORMAL LOGIN
 
  2 ACCESS TOKEN LOGIN
 
 IFORMATIONS:
-
+=======================================
  1 Facebook friend info fetcher
 
  2 Get ID from friend
@@ -64,7 +64,7 @@ IFORMATIONS:
 
 
 INSTALLATION:
-
+============================================
 $ apt update && apt upgrade
 
 $ apt install git
@@ -82,6 +82,6 @@ $ python2 axom.py
 
 DONATE ME                       
 =================================================
-BTC ADDRESS-                                                            |
+BTC ADDRESS-                                                            
 3NyAqCN5YvtXSCCxcAgr43uzugSqGLGYaK 
 
