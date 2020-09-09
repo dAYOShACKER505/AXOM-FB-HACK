@@ -1,5 +1,6 @@
 # AXOM-FB-HACK
-facebook hacking tool for termux or linux 2020
+#facebook hacking tool for termux or linux 2020
+#Only use token for login or Dont use real id
 
 
 FEATURES:
