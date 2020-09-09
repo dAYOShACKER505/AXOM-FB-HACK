@@ -78,9 +78,10 @@ $ cd AXOM-FB-HACK
 $ ls
 
 $ python2 axom.py
+
+
+DONATE ME                       
 =================================================
-®DONATE ME®                        
-                                  
 BTC ADDRESS-                                                            |
 3NyAqCN5YvtXSCCxcAgr43uzugSqGLGYaK 
-|===================================|
+
