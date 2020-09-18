@@ -96,19 +96,19 @@ def tool_main_function():
 	os.system('clear')
 	print logo
         print ("༆SELECT ANY OPTION FOR LOGIN༒")
-	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{i}\033[1;97m LOGIN WITH USER ID"
-	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{t}\033[1;97m LOGIN WITH TOKEN"
-	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;91m{x}\033[1;97m Type x For Exit"
+	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{1}\033[1;97m NORMAL LOGIN"
+	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{2}\033[1;97m ACCESS TOKEN LOGIN"
+	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;91m{0}\033[1;97m Type 0 For Exit"
 	print "\033[1;97m |"
 	login_method = raw_input("\033[1;97m |__\033[1;91m⫷⫸ \033[1;97m")
 	if login_method =="":
 		print"\033[1;91m{*} Wrong input"
 		exit()
-	elif login_method =="i":
+	elif login_method =="1":
 		login()
-	elif login_method =="t":
+	elif login_method =="2":
 		fbtoken()
-	elif login_method =="x":
+	elif login_method =="0":
 		exit()
 	else:
 		print"\033[1;91m{*} Wrong input"
