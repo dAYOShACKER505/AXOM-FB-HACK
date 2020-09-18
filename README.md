@@ -5,9 +5,9 @@
 
 FEATURES:
 ======================================
-1 NORMAL LOGIN
+1 LOGIN WITH EMAIL/USR ID
 
- 2 ACCESS TOKEN LOGIN
+ 2 LOGIN WITH TOKEN
 
 IFORMATIONS:
 =======================================
