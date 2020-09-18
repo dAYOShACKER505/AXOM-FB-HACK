@@ -96,8 +96,8 @@ def tool_main_function():
 	os.system('clear')
 	print logo
         print ("༆SELECT ANY OPTION FOR LOGIN༒")
-	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{1}\033[1;97m NORMAL LOGIN"
-	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{2}\033[1;97m ACCESS TOKEN LOGIN"
+	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{1}\033[1;97m LOGIN WITH Email ID"
+	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;92m{2}\033[1;97m LOGIN WITH fb_TOKEN"
 	print "\033[1;97m |__\033[1;91m⫷⫸ \033[1;91m{0}\033[1;97m Type 0 For Exit"
 	print "\033[1;97m |"
 	login_method = raw_input("\033[1;97m |__\033[1;91m⫷⫸ \033[1;97m")
