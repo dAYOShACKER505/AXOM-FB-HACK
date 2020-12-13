@@ -29,7 +29,8 @@ IFORMATIONS:
 
  9 Mini Hack Facebook(Target)
 
- 10 Multi Bruteforce Facebook
+ 10 Multi Bruteforce Facebook$ pwd 
+/data/data/com.termux/files/home
 
  11 Super Multi Bruteforce Facebook
 
