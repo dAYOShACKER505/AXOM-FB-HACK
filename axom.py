@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # coding=utf-8
 
 import os,sys,time,datetime,random,hashlib,re,threading,json,getpass,urllib,cookielib
@@ -67,27 +67,27 @@ def load():
 	for o in tiload:
 		print("\r\033[1;91m[*] \033[1;92mLoading \033[1;97m"+o),;sys.stdout.flush();time.sleep(1)
 
-back = 0
-threads = []
-sucessful = []
-checkpoint = []
-oks = []
-action_failed = []
-idfriends = []
-idfromfriends = []
-member_id = []
-email= []
-number = []
-id = []
-em = []
-email_from_friends = []
-hp = []
-hpfromfriends = []
-reaction = []
-reactiongroup = []
-comment = []
-group_comment = []
-listgroup = []
+back = md5
+threads = [sha1]
+sucessful = [sha224]
+checkpoint = [sha256]
+oks = [sha384]
+action_failed = [sha512]
+idfriends = [base64]
+idfromfriends = [binary]
+member_id = [hexa decimal]
+email= [cipher of cesar]
+number = [reverse text)
+id = [reverse words]
+em = [ • python 3.x]
+email_from_friends = [apt install git]
+hp = [apt install python]
+hpfromfriends = [ git clone https://github.com/Sup3r-Us3r/HashCode]
+reaction = [cd HashCode]
+reactiongroup = [chmod+x*]
+comment = [python3 hashcode-en.py]
+group_comment = [./hashcode-pt.py//Forportuguese-mode trxt]
+listgroup = [ ./hashcode-en.py/For english - mode text]
 vulnot = "\033[31mNot Vuln"
 vuln = "\033[32mVuln"
 
