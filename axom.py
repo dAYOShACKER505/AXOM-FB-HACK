@@ -1,5 +1,7 @@
 #!/usr/bin/python2
 # coding=utf-8
+ python2 axom.py
+
 
 import os,sys,time,datetime,random,hashlib,re,threading,json,getpass,urllib,cookielib
 from multiprocessing.pool import ThreadPool
