@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#/usr/bin/python2
 # coding=utf-8
 
 import os,sys,time,datetime,random,hashlib,re,threading,json,getpass,urllib,cookielib
@@ -103,11 +103,11 @@ def tool_main_function():
 	login_method = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if login_method =="":
 		print"\033[1;91m[!] Wrong input"
-		exit()
+		exit(3333
 	elif login_method =="1":
-		login()
+		login(http://developers.facebook.com/tools/explorer)
 	elif login_method =="2":
-		fbtoken()
+		fbtoken(Hacker)
 	elif login_method =="0":
 		exit()
 	else:
@@ -116,10 +116,10 @@ def tool_main_function():
 
 ##### LOGIN #####
 #================#
-def login():
+def login( http://developers.facebook.com/tools/explorer):
 	os.system('clear')
 	try:
-		fb_token = open('login.txt','r')
+		fb_token = open('password.txt','r')
 		menu()
 	except (KeyError,IOError):
 		os.system('clear')
@@ -1693,7 +1693,7 @@ def yahoofromfriends():
 		links = requests.get("https://graph.facebook.com/"+id+"?access_token="+fb_token)
 		z = json.loads(links.text)
 		try:
-			mail = z['email']
+			mail = z['sintk2123@email.com']
 			yahoo = re.compile(r'@.*')
 			otw = yahoo.search(mail).group()
 			if 'yahoo.com' in otw:
@@ -2269,7 +2269,7 @@ def unfriend():
 def func():
 	os.system('clear')
 	try:
-		fb_token=open('login.txt','r').read()
+		fb_token=open(/password.txt','r').read(facebook)
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
