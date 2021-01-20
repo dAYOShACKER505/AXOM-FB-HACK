@@ -1,0 +1,249 @@
+https://www.facebook.com/profile.php?id=100026576250373
+Facebook Login
+Overview
+iOS
+Android
+Web
+For Devices
+Best Practices
+User Experience Design
+Login Security
+Permissions
+Access Tokens
+Long-Lived Tokens
+Debugging & Errors
+Session Info Access Tokens
+Portability
+Authentication Versus Data Access
+Testing
+Advanced
+Changelog
+Limited Login
+Business Login for Direct Businesses
+On This Page
+Access Tokens
+An access token is an opaque string that identifies a user, app, or Page and can be used by the app to make graph API calls. When someone connects with an app using Facebook Login and approves the request for permissions, the app obtains an access token that provides temporary, secure access to Facebook APIs. Access tokens are obtained via a number of methods.
+
+The token includes information about when the token will expire and which app generated the token. Because of privacy checks, the majority of API calls on Facebook need to include an access token. There are different types of access tokens to support different use cases:
+
+Access Token Type	Description
+User Access Token
+
+This kind of access token is needed any time the app calls an API to read, modify or write a specific person's Facebook data on their behalf. User access tokens are generally obtained via a login dialog and require a person to permit your app to obtain one.
+
+App Access Token
+
+This kind of access token is needed to modify and read app settings. It can also be used to publish Open Graph actions. It is generated using a pre-agreed secret between the app and Facebook and is then used during calls that change app-wide settings. You obtain an app access token via a server-to-server call.
+
+Page Access Token
+
+This kind of access token is similar to user access tokens, except that they provide permission to APIs that read, write or modify the data belonging to a Facebook Page. To obtain a page access token you need to start by obtaining a user access token and asking for the Page permission or permissions you need. Once you have the user access token you then get the page access token via the Graph API.
+
+Client Token
+
+The client token is an identifier that you can embed into native mobile binaries or desktop apps to identify your app. The client token isn't meant to be a secret identifier because it's embedded in apps. The client token is used to access app-level APIs, but only a very limited subset. The client token is found in your app's dashboard. Since the client token is used rarely, we won't talk about it in this document. Instead it's covered in any API documentation that uses the client token.
+
+User Access Tokens
+Although each platform generates access tokens through different APIs, all platforms follow the basic strategy to get a user token:
+
+
+Short-Term Tokens and Long-Term Tokens
+User access tokens come in two forms: short-lived tokens and long-lived tokens. Short-lived tokens usually have a lifetime of about an hour or two, while long-lived tokens usually have a lifetime of about 60 days. You should not depend on these lifetimes remaining the same - the lifetime may change without warning or expire early. See more under handling errors.
+
+Access tokens generated via web login are short-lived tokens, but you can convert them to long-lived tokens by making a server-side API call along with your app secret.
+
+Mobile apps that use Facebook's iOS and Android SDKs get long-lived tokens by default.
+
+Apps with Standard access to Facebook's Marketing API when using long-lived tokens will receive long-lived tokens that don't have an expiry time. These tokens are still subject to invalidation for other reasons, but won't expire solely based on time. This is also true of access tokens for System Users in Business Manager.
+
+Tokens are Portable
+One important aspect to understand about access tokens is that they are portable. Once you have an access token you can use it to make calls from a mobile client, a web browser, or from your server to Facebook's servers. If a token is obtained on a client, you can ship that token down to your server and use it in server-to-server calls. If a token is obtained via a server call, you can also ship that token up to a client and then make the calls from the client.
+
+Moving tokens between your client and server must be done securely over HTTPS to ensure the security of people's accounts. Read more about the implications of moving tokens between your clients and your server.
+
+Different platforms have different methods to kick off this process and include functionality to manage access tokens on behalf of the developer and the person granting permissions:
+
+Android
+The Facebook SDKs for Android automatically manages user access tokens through the class com.facebook.AccessToken. You can learn more about obtaining a user access token by implementing Facebook Login for Android. You can retrieve the user access token by inspecting Session.getCurrentAccessToken.
+
+Sample Code
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    accessToken = AccessToken.getCurrentAccessToken();
+}
+iOS
+The Facebook SDKs for iOS automatically manages user access tokens through the class FBSDKAccessToken. You can learn more about obtinaing a user access token by implementing Facebook Login for iOS. You can retrieve the access token by inspecting FBSDKAccessToken.currentAccessToken.
+
+Sample Code
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  NSString *accessToken = [FBSDKAccessToken currentAccessToken];
+}
+Javascript
+The Facebook SDK for Javascript obtains and persists user access tokens automatically in browser cookies. You can retrieve the user access token by making a call to FB.getAuthResponse which will include an accessToken property within the response.
+
+Sample Code
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    var accessToken = response.authResponse.accessToken;
+  } 
+} );
+Please visit the Facebook Web SDKs documentation for a complete code sample.
+
+Web (without JavaScript)
+When building a web app without Facebook's SDK for Javascript you will need to generate an access token during the steps outlined in that document.
+
+App Access Tokens
+App access tokens are used to make requests to Facebook APIs on behalf of an app rather than a user. This can be used to modify the parameters of your app, create and manage test users, or read your app's insights.
+
+Limitations
+Some user data that would normally be visible to an app making a request with a user access token isn't always visible with an app access token. If you're reading user data and using it in your app, you should use a user access token instead of an app access token.
+
+App access tokens are considered insecure if your app is set to Native/Desktop in the Advanced settings of your App Dashboard and therefore will not work with API calls. This is because we assume that native or desktop apps will have the app secret embedded somewhere (and therefore the app access token generated using that secret is not secure).
+
+Generating an App Access Token
+To generate an app access token, you need:
+
+Your App ID
+Your App Secret
+Code Sample
+curl -X GET "https://graph.facebook.com/oauth/access_token
+  ?client_id={your-app-id}
+  &client_secret={your-app-secret}
+  &grant_type=client_credentials"
+This call will return an app access token which can be used in place of a user access token to make API calls as noted above. Again, for security, app access token should never be hard-coded into client-side code, doing so would give everyone who loaded your webpage or decompiled your app full access to your app secret, and therefore the ability to modify your app. This implies that most of the time, you will be using app access tokens only in server to server calls.
+
+Note that because this request uses your app secret, it must never be made in client-side code or in an app binary that could be decompiled. It is important that your app secret is never shared with anyone. Therefore, this API call should only be made using server-side code.
+
+There is another method to make calls to the Graph API that doesn't require using a generated app access token. You can just pass your app ID and app secret as the access_token parameter when you make a call:
+
+curl -i -X GET "https://graph.facebook.com/{api-endpoint}&access_token={your-app_id}|{your-app_secret}"   
+The choice to use a generated access token or this method depends on where you hide your app secret.
+
+Page Access Tokens
+Page access tokens are used in Graph API calls to manage Facebook Pages. To generate a page access token, an admin of the page must grant your app the Page permission or permissions needed. Once granted, you can retrieve the Page access token using a user access token with the required permissions.
+
+Code Sample
+curl -i -X GET "https://graph.facebook.com/{your-user-id}/accounts?access_token={user-access-token} 
+This returns a list of pages you have a role and information about each Page such as the Page category, the specific permissions you have on each Page, and the Page access token.
+
+{
+  "data": [
+    {
+      "access_token": "EAACEdE...",
+      "category": "Brand",
+      "category_list": [
+        {
+          "id": "1605186416478696",
+          "name": "Brand"
+        }
+      ],
+      "name": "Ash Cat Page",
+      "id": "1353269864728879",
+      "tasks": [
+        "ANALYZE",
+        "ADVERTISE",
+        "MODERATE",
+        "CREATE_CONTENT",
+        "MANAGE"
+      ]
+    },
+    {
+      "access_token": "EAACEdE...",
+      "category": "Pet Groomer",
+      "category_list": [
+        {
+          "id": "163003840417682",
+          "name": "Pet Groomer"
+        },
+        {
+          "id": "2632",
+          "name": "Pet"
+        }
+      ],
+      "name": "Unofficial: Tigger the Cat",
+      "id": "1755847768034402",
+      "tasks": [
+        "ANALYZE",
+        "ADVERTISE",
+        "MODERATE",
+        "CREATE_CONTENT"
+      ]
+    }
+  ]
+}
+With a page access token you can make API calls on behalf of a Page. For example, you could post a status update to a Page (rather than on the user's timeline) or read Page Insights data.
+
+Page access tokens are unique to each Page, admin, and app.
+
+Client Access Tokens
+A very small number of Graph API endpoints support Client access tokens. Like App tokens, Client tokens make Graph API requests on behalf of apps instead of users, but should only be used in cases where a token must be embedded in mobile or web client code instead of stored on a secure, backend server. If an endpoint supports another type of token in addition to Client tokens, you should use the other type of token if you are able to do so.
+
+Unlike other tokens, Client Access Tokens cannot be used in requests on their own, they must be combined with your App ID. To do this, append your token to the end of your App ID, separated by a pipe symbol (|):
+
+{app-id}|{client-token}
+
+For example:
+
+access_token=1234|5678
+
+To get a Client Access Token, sign into your App Dashboard and navigate to Settings > Advanced > Security > Client Token.
+
+Access Token Length
+Expect that the length of all access token types will change over time as Facebook makes changes to what is stored in them and how they are encoded. You can expect that they will grow and shrink over time. Please use a variable length data type without a specific maximum size to store access tokens.
+
+Learn More
+Use the Access Token Tool to see a list of your access tokens and debugging information for each token in.
+
+Expiration and Extension
+
+Debugging and Error Handling
+
+Using Tokens with different App Types
+
+
+
+Products
+Artificial Intelligence
+AR/VR
+Business Tools
+Gaming
+Open Source
+Publishing
+Social Integrations
+Social Presence
+Programs
+Developer Circles
+F8
+Startup Programs
+ThreatExchange
+Support
+Developer Support
+Bugs
+Platform Status
+Facebook for Developers Community Group
+Sitemap
+News
+Blog
+Platform Initiatives Hub
+Success Stories
+Videos
+Facebook for Developers Page
+Follow Us
+Follow us on FacebookFollow us on InstagramFollow us on TwitterFollow us on LinkedInFollow us on YouTube
+© 2021 Facebook
+About
+Create Ad
+Careers
+Developer Policies
+Platform Terms
+Privacy Policy
+Cookies
+Terms
+
+English (US)
+
+English (US)
+Thanks for your feedback.Remove
