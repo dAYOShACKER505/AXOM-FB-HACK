@@ -1,6 +1,6 @@
 # AXOM-FB-HACK
 #facebook hacking tool for termux or linux 2020
-#Only use token for login or Dont use real id
+#Only use token for login or don't use real id
 
 
 FEATURES:
@@ -9,7 +9,7 @@ FEATURES:
 
  2 LOGIN WITH TOKEN
 
-IFORMATIONS:
+INFORMATION:
 =======================================
  1 Facebook friend info fetcher
 
