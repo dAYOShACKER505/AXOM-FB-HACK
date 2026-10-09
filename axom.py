@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # coding=utf-8
 
 import os,sys,time,datetime,random,hashlib,re,threading,json,getpass,urllib,cookielib
